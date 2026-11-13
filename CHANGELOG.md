@@ -4,6 +4,17 @@ Este arquivo registra apenas mudanças específicas deste fork. O histórico com
 
 ## Não lançado
 
+### Redesenho estrutural da área de trabalho
+
+- Barra de título e barra de ferramentas globais, com ações de projetos, nova conversa e pesquisa.
+- Biblioteca de projetos emoldurada, separada da área de trabalho principal.
+- Tela inicial contextual com nome e pasta do projeto e atalhos reais para terminal e painel lateral.
+- Painel de mensagem fixado na parte inferior também no início da conversa, substituindo a composição centralizada.
+- Controles de Atividade, Terminal e Arquivos identificados na barra superior e acesso a Aparência na barra inferior.
+- Ícones vetoriais próprios de pasta e terminal com acabamento Aero.
+- Composição limitada ao tema Aero Blue, preservando a possibilidade de selecionar os outros temas.
+- Compilação desktop, typecheck web e lint dos arquivos alterados aprovados; composição observada na janela nativa e aprovada pelo proprietário. A validação interativa completa permanece pendente.
+
 ### Desktop local e refinamento Aero
 
 - Janela nativa Electron com identidade T3aero, ícone próprio e perfil isolado em `~/.config/t3aero` no Linux padrão.

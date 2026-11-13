@@ -18,6 +18,12 @@ O projeto **T3aero** pode ser adicionado escolhendo a pasta deste repositório. 
 
 Não existe commit ou publicação automática implementada pelo Aero Blue. O agente continua sujeito às permissões da conversa e às aprovações que você conceder.
 
+## Organização da janela
+
+A barra de ferramentas reúne **Projetos**, **Nova conversa**, **Abrir projeto** e pesquisa. A biblioteca lateral contém os projetos e as conversas existentes. No início de uma conversa, a área principal mostra o projeto aberto e atalhos para suas ferramentas; a mensagem fica no painel inferior.
+
+**Atividade**, **Terminal** e **Arquivos** ficam à direita da barra superior. O atalho para **Aparência** fica na barra inferior. Esses controles usam as ações existentes da base T3 Code.
+
 ## Terminal e painéis
 
 No Linux, o atalho padrão **Ctrl+J** abre ou recolhe o terminal. **Ctrl+Alt+B** alterna o painel direito. Os atalhos podem ser alterados em **Settings → Keybindings**. O terminal, os arquivos, a prévia e os controles de comparação são os recursos existentes do T3 Code.

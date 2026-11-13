@@ -33,6 +33,10 @@ Preservar as fontes e os tamanhos configuráveis da base evita retirar preferên
 - Cor não é o único sinal para erro, sucesso ou pedido de aprovação.
 - Usar efeitos estáticos como padrão; evitar animações contínuas e respeitar redução de movimento.
 
+## Composição da área de trabalho
+
+A estrutura usa uma barra de título e uma barra de ferramentas globais, biblioteca lateral emoldurada, área principal de leitura e painel de mensagem inferior. A referência é a organização de aplicativos desktop da era Aero. A tela inicial apresenta o projeto e ações reais; não repete o campo centralizado de um chat genérico.
+
 ## Superfícies prioritárias
 
 1. Barra lateral e navegação entre projetos/conversas.

@@ -232,7 +232,7 @@ function SidebarProvider({
     <SidebarContext value={contextValue}>
       <div
         className={cn(
-          "group/sidebar-wrapper flex min-h-svh w-full",
+          "group/sidebar-wrapper flex min-h-svh w-full aero:bg-aero-workspace aero:bg-cover",
           SIDEBAR_TITLEBAR_CONTROL_SIZE,
           className,
         )}
@@ -396,7 +396,7 @@ function Sidebar({
         />
         <div
           className={cn(
-            "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) md:flex",
+            "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) md:flex aero:top-(--aero-sidebar-top) aero:bottom-9 aero:left-3 aero:h-auto aero:group-data-[collapsible=offcanvas]:-left-full",
             "[[data-panel-animations=true]_&]:transition-[left,right,width] [[data-panel-animations=true]_&]:[transition-duration:var(--panel-animation-duration)] [[data-panel-animations=true]_&]:ease-out",
             side === "left"
               ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
@@ -410,7 +410,7 @@ function Sidebar({
           {...props}
         >
           <div
-            className="flex h-full w-full flex-col bg-sidebar surface-grain aero:bg-aero-sidebar aero:bg-cover aero:shadow-aero-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow-sm/5"
+            className="flex h-full w-full flex-col bg-sidebar surface-grain aero:bg-aero-sidebar aero:bg-cover aero:shadow-aero-sidebar aero:rounded-md aero:border aero:border-aero-frame aero:overflow-hidden group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow-sm/5"
             data-sidebar="sidebar"
             data-slot="sidebar-inner"
           >
@@ -638,7 +638,7 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
   return (
     <main
       className={cn(
-        "relative flex min-w-0 w-full flex-1 flex-col bg-background surface-grain aero:bg-aero-workspace aero:bg-cover aero:bg-center",
+        "relative flex min-w-0 w-full flex-1 flex-col bg-background surface-grain aero:h-full! aero:min-h-0 aero:overflow-hidden aero:rounded-md aero:border aero:border-aero-frame aero:bg-card aero:shadow-aero-frame",
         "md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ms-2 md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ms-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm/5",
         className,
       )}

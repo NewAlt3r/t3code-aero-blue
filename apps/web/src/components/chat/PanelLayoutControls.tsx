@@ -64,6 +64,7 @@ export const PanelLayoutControls = memo(function PanelLayoutControls({
       size="sm"
     >
       <SquareMenuIcon className="size-4" />
+      <span className="hidden text-xs aero:lg:inline">Atividade</span>
     </Toggle>
   );
   const threadPanelControl = (
@@ -101,6 +102,7 @@ export const PanelLayoutControls = memo(function PanelLayoutControls({
               disabled={!terminalAvailable}
             >
               <PanelBottomIcon className="size-4" />
+              <span className="hidden text-xs aero:lg:inline">Terminal</span>
             </Toggle>
           </TooltipTrigger>
           <TooltipPopup side="bottom">
@@ -124,6 +126,7 @@ export const PanelLayoutControls = memo(function PanelLayoutControls({
               disabled={!rightPanelAvailable}
             >
               <PanelRightIcon className="size-4" />
+              <span className="hidden text-xs aero:lg:inline">Arquivos</span>
             </Toggle>
           </TooltipTrigger>
           <TooltipPopup side="bottom">
@@ -199,7 +202,7 @@ export function WorkspaceTitlebarControls(props: {
   return (
     <div
       className={cn(
-        "pointer-events-none fixed top-[var(--workspace-controls-top)] right-[var(--workspace-controls-right)] z-50 mr-px flex h-[var(--workspace-topbar-height)] items-center gap-1 [-webkit-app-region:no-drag]",
+        "pointer-events-none fixed top-[var(--workspace-controls-top)] right-[var(--workspace-controls-right)] z-50 mr-px flex h-[var(--workspace-topbar-height)] items-center gap-1 [-webkit-app-region:no-drag] aero:top-10 aero:right-4 aero:h-11",
         mobileSidebarSheetMounted && "hidden",
       )}
       data-workspace-titlebar-controls

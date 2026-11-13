@@ -2638,6 +2638,11 @@ code {
   html[data-theme-id="aero-blue"] {
     --surface-grain: none;
     --surface-grain-size: auto;
+    --workspace-topbar-height: 40px;
+    --aero-sidebar-top: 96px;
+    --aero-title: linear-gradient(to bottom, #f2fbff, #b4d9ef 48%, #9fc8e3 51%, #d2e9f8);
+    --aero-ribbon: linear-gradient(to bottom, #fafdff, #dcecf7);
+    --aero-project: linear-gradient(120deg, #f9fcff 40%, #e0f1fb);
     --aero-workspace: url("/aero-blue/blue-waves.svg");
     --aero-sidebar: linear-gradient(
       160deg,
@@ -2662,6 +2667,9 @@ code {
 }
 
 @theme inline {
+  --background-image-aero-title: var(--aero-title);
+  --background-image-aero-ribbon: var(--aero-ribbon);
+  --background-image-aero-project: var(--aero-project);
   --background-image-aero-workspace: var(--aero-workspace);
   --background-image-aero-sidebar: var(--aero-sidebar);
   --background-image-aero-primary: var(--aero-primary);

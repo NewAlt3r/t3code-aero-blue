@@ -38,7 +38,7 @@ function Host({ className, ...props }: ComponentProps<"div">) {
     <div
       data-slot="composer-host"
       className={cn(
-        "relative z-10 w-full rounded-2xl shadow-composer after:z-1 dark:shadow-none aero:bg-aero-panel aero:shadow-aero-frame",
+        "relative z-10 w-full rounded-2xl shadow-composer after:z-1 dark:shadow-none aero:rounded-md aero:overflow-hidden aero:bg-aero-panel aero:shadow-aero-frame",
         "group-data-context-row/composer-surface:before:pointer-events-none group-data-context-row/composer-surface:before:absolute group-data-context-row/composer-surface:before:inset-0 group-data-context-row/composer-surface:before:-z-1 group-data-context-row/composer-surface:before:rounded-2xl group-data-context-row/composer-surface:before:bg-(--chat-composer-glass-surface)/(--glass-opacity) group-data-context-row/composer-surface:before:backdrop-blur-(--glass-blur) group-data-context-row/composer-surface:before:backdrop-saturate-(--glass-saturation)",
         outlineClasses,
         "group-has-data-[composer-banner-surface=attached]/composer-surface:shadow-none group-has-data-[composer-banner-surface=attached]/composer-surface:before:hidden group-has-data-[composer-banner-surface=attached]/composer-surface:after:hidden",
@@ -49,12 +49,12 @@ function Host({ className, ...props }: ComponentProps<"div">) {
   );
 }
 
-function Main({ className, ...props }: ComponentProps<"div">) {
+function Main({ className, children, ...props }: ComponentProps<"div">) {
   return (
     <div
       data-chat-composer-main-surface="true"
       className={cn(
-        "group relative z-10 rounded-2xl p-px",
+        "group relative z-10 rounded-2xl p-px aero:rounded-md",
         outlineClasses,
         "after:z-20 after:hidden group-has-data-[composer-banner-surface=attached]/composer-surface:after:block",
         "group-has-data-[composer-banner-surface=attached]/composer-surface:bg-(--chat-composer-glass-surface)/(--glass-opacity) group-has-data-[composer-banner-surface=attached]/composer-surface:backdrop-blur-(--glass-blur) group-has-data-[composer-banner-surface=attached]/composer-surface:backdrop-saturate-(--glass-saturation)",
@@ -64,7 +64,12 @@ function Main({ className, ...props }: ComponentProps<"div">) {
         className,
       )}
       {...props}
-    />
+    >
+      <div className="hidden h-8 items-center border-b border-border bg-aero-ribbon px-4 text-xs font-semibold text-foreground aero:flex">
+        Mensagem para o agente
+      </div>
+      {children}
+    </div>
   );
 }
 

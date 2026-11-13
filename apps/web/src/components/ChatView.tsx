@@ -1,3 +1,4 @@
+import { AeroProjectStart } from "./chat/AeroProjectStart";
 import { ChildThreadApprovals } from "./chat/ChildThreadApprovals";
 import { workspaceAreaProps } from "../lib/workspaceFocus";
 import { sourceControlClients } from "@t3tools/client-runtime/source-control-clients";
@@ -3292,7 +3293,7 @@ export default function ChatView(props: ChatViewProps) {
       ref={setWorkspaceLayoutElement}
       className={cn(
         "relative flex min-h-0 min-w-0 flex-1 overflow-hidden bg-background aero:bg-card",
-        isDraftHeroState && "aero:bg-aero-workspace aero:bg-cover aero:bg-center",
+        isDraftHeroState && "aero:bg-card",
       )}
     >
       {embedded ? null : (
@@ -3398,6 +3399,16 @@ export default function ChatView(props: ChatViewProps) {
               {...conversationArea}
               className="relative flex min-h-0 flex-1 flex-col bg-background aero:bg-transparent"
             >
+              {isDraftHeroState ? (
+                <AeroProjectStart
+                  title={activeProject?.title ?? "Nova conversa"}
+                  workspace={activeWorkspaceRoot ?? null}
+                  composerInset={composerReservedHeight}
+                  onTerminal={toggleTerminalVisibilityStable}
+                  onFiles={toggleRightPanelStable}
+                  available={activeProject !== null}
+                />
+              ) : null}
               <WorkspaceMutationIdContext value={workspaceMutationId}>
                 <ThreadTimeline
                   pendingApprovals={pendingApprovals}
@@ -3520,7 +3531,7 @@ export default function ChatView(props: ChatViewProps) {
               data-chat-composer-overlay="true"
               className={
                 isDraftHeroState
-                  ? "pointer-events-none absolute inset-0 z-20 flex items-center [@media(max-height:34rem)]:items-end"
+                  ? "pointer-events-none absolute inset-0 z-20 flex items-center [@media(max-height:34rem)]:items-end aero:inset-x-0 aero:top-auto aero:bottom-0 aero:items-end"
                   : "pointer-events-none absolute inset-x-0 bottom-0 z-20 pt-1.5 sm:pt-2"
               }
             >
@@ -3530,7 +3541,7 @@ export default function ChatView(props: ChatViewProps) {
                   className="group/composer-stack pointer-events-auto relative z-10 mx-auto w-full max-w-(--chat-content-max-width)"
                 >
                   {isDraftHeroState ? (
-                    <div className="absolute inset-x-0 bottom-full">
+                    <div className="absolute inset-x-0 bottom-full aero:hidden">
                       <div
                         className="pb-4 group-has-data-[composer-shoulder-tab]/composer-stack:pb-0"
                         style={
