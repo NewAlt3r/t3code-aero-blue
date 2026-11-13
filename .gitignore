@@ -51,3 +51,6 @@ node_modules/
 .pnpm-store/
 
 /packages/ssh/.ssh-launcher-test-*/
+
+# Isolated Aero Blue development state.
+/.t3-aero-blue-dev/

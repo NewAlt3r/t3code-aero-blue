@@ -1,108 +1,66 @@
-<p align="center">
-  <a href="https://t3.codes">
-    <img src="./assets/prod/t3-black-web-icon-192x192.png" width="80" height="80" alt="T3 Code logo" />
-  </a>
-</p>
+# T3 Code Aero Blue
 
-<h1 align="center">T3 Code</h1>
+Uma versão independente do [T3 Code](https://github.com/pingdotgg/t3code), com a proposta de trazer o visual **Frutiger Aero** para uma interface gráfica de agentes de programação, começando pelo uso com Codex no Linux Mint.
 
-<p align="center">The open-source control plane for coding agents.</p>
+Azul-gelo, superfícies de vidro, degradês suaves e botões com brilho: uma interface pessoal, feita para ser refinada ao longo do tempo, mantendo a base funcional do T3 Code.
 
-<p align="center">
-  <a href="https://t3.codes/download"><strong>Download</strong></a> ·
-  <a href="https://apps.apple.com/us/app/t3-code-remote-claude-more/id6787819824">iOS</a> ·
-  <a href="https://play.google.com/store/apps/details?id=com.t3tools.t3code">Android</a> ·
-  <a href="https://app.t3.codes">Web</a> ·
-  <a href="./docs/README.md">Docs</a> ·
-  <a href="https://discord.gg/jn4EGJjrvv">Discord</a>
-</p>
+> **Estado atual: preparação do projeto.** Este repositório contém o código original e a documentação inicial do Aero Blue. O tema ainda não foi implementado, não há capturas da versão personalizada nem instaladores próprios publicados.
 
-<p align="center">
-  <a href="https://t3.codes">
-    <img src="./.github/readme/hero.webp" width="100%" alt="T3 Code on desktop with a finished Claude thread, next to the phone app asking to approve a command from Codex" />
-  </a>
-</p>
+## Objetivos
 
-T3 Code runs the coding agents on your machine and gives them one fast interface. Start a thread at your desk, then approve the next step from your phone.
+- Criar uma identidade azul inspirada no Aero clássico e no Frutiger Aero.
+- Manter conversas, código e permissões fáceis de ler.
+- Começar pelo cliente web e pelo desktop Linux, que compartilham a interface web.
+- Preservar o funcionamento dos agentes e acompanhar correções do projeto original.
+- Evoluir com mudanças pequenas, capturas de tela e versões identificáveis.
 
-It works with Claude Code, Codex, Cursor, OpenCode, Grok Build, Antigravity, Kiro, Pi, Muse Code, fx, and any [ACP](./docs/user/providers-acp.md) agent. If an agent is set up on your computer, T3 Code can control it.
+O primeiro ambiente de referência é **Linux Mint com XFCE**. Isso é uma prioridade de desenvolvimento, não uma declaração de compatibilidade já testada. A interface mobile não faz parte da primeira etapa visual.
 
-## What you get
+## Documentação do Aero Blue
 
-- **Your subscriptions.** T3 Code does not resell tokens. It drives the agents you are already signed in to.
-- **Every agent in one place.** Change models in the middle of a thread. Let Claude hand a task to Codex.
-- **Desktop, web, and phone.** One server, and every client shows the same threads. There are apps for iOS and Android.
-- **Remote ready.** Run agents on any machine. Connect over your local network, Tailscale, or [T3 Connect](./docs/user/remote-access.md).
-- **Git built in.** Each thread can work in its own worktree. Review the diff, then commit, push, and open a pull request with one button.
-- **Fast.** Performance is a feature here. We measure it, and we treat a dropped frame as a bug.
-- **Open.** MIT licensed. If you don't like something, fork it.
+| Documento                                                     | Conteúdo                                               |
+| ------------------------------------------------------------- | ------------------------------------------------------ |
+| [Direção visual](docs/aero-blue/DESIGN.md)                    | Paleta proposta, acabamento, legibilidade e desempenho |
+| [Evolução do projeto](docs/aero-blue/ROADMAP.md)              | Etapas e critérios para as primeiras versões           |
+| [Desenvolvimento e manutenção](docs/aero-blue/DEVELOPMENT.md) | Executar, validar e atualizar o fork                   |
+| [Histórico de alterações](CHANGELOG.md)                       | Registro das mudanças específicas do Aero Blue         |
 
-## Install
+A [apresentação original do T3 Code](README.upstream.md) foi preservada. Os [guias originais](docs/README.md), as [instruções de desenvolvimento](docs/operations/development.md) e a [documentação de temas](docs/user/appearance.md) continuam disponíveis.
 
-### Desktop app
+## Começar a desenvolver
 
-[Download T3 Code](https://t3.codes/download) for macOS, Windows, or Linux. You can also use a package manager:
-
-| Platform       | Command                                                              |
-| -------------- | -------------------------------------------------------------------- |
-| macOS          | `brew install --cask t3-code`                                        |
-| Windows        | `winget install T3Tools.T3Code` or `scoop install extras/t3code`     |
-| Arch Linux     | `yay -S t3code-bin`                                                  |
-| Nix            | `nix profile add github:NixOS/nixpkgs/nixos-unstable#t3code`         |
-| Debian, Ubuntu | `.deb` from [Releases](https://github.com/pingdotgg/t3code/releases) |
-
-### Command line
-
-This installs the `t3` command. Run `t3` to start the server and open the web app.
+Siga os pré-requisitos em [Development](docs/operations/development.md#first-checkout), incluindo a instalação do Vite+ (`vp`). O Vite+ fornece a versão de Node fixada pelo projeto.
 
 ```bash
-curl -fsSL https://t3.codes/install.sh | sh
+git clone https://github.com/NewAlt3r/t3code-aero-blue.git
+cd t3code-aero-blue
+vp i
+vp run dev --home-dir ./.t3-aero-blue-dev --no-seed
 ```
 
-On Windows, in PowerShell:
+Abra o endereço de pareamento exibido pelo processo. Para o cliente desktop, consulte o [guia do fork](docs/aero-blue/DEVELOPMENT.md). As instruções acima executam a base de desenvolvimento; ainda não ativam um tema Aero Blue.
 
-```powershell
-irm https://t3.codes/install.ps1 | iex
-```
+O Codex precisa estar instalado e autenticado separadamente para executar tarefas reais. O T3 Code funciona como interface para o agente; este fork não oferece uma assinatura ou uma cota de modelos própria.
 
-To try it once without an install, run `npx t3@latest`.
+## Instalação e versões
 
-### Phone
+Ainda não há release do Aero Blue. Os downloads oficiais e os pacotes citados na documentação original instalam **T3 Code original**, sem as personalizações planejadas aqui.
 
-Get the app from the [App Store](https://apps.apple.com/us/app/t3-code-remote-claude-more/id6787819824) or [Google Play](https://play.google.com/store/apps/details?id=com.t3tools.t3code). Then follow [remote access](./docs/user/remote-access.md) to connect it to your computer.
+A primeira versão visual prevista é `v0.1.0-aero.1`. Ela só será publicada depois que o tema estiver implementado e validado. Datas e funcionalidades podem mudar conforme o desenvolvimento.
 
-### Sign in to an agent
+## Contribuir
 
-T3 Code needs one agent that is installed and signed in. For example, install [Claude Code](https://claude.com/product/claude-code) and run `claude auth login`, or install [Codex CLI](https://developers.openai.com/codex/cli) and run `codex login`.
+Sugestões e problemas específicos do Aero Blue devem ser registrados nas Issues **deste fork**. Em mudanças visuais, inclua capturas antes/depois, ambiente usado e passos para reproduzir. Não publique conversas, credenciais ou arquivos privados nas capturas.
 
-[Provider setup](./docs/user/install.md#providers) has the steps for each agent. [Install T3 Code](./docs/user/install.md) covers nightly builds, AppImage, WSL, and NixOS.
+As [orientações de manutenção](docs/aero-blue/DEVELOPMENT.md) explicam como trabalhar em branches e sincronizar com o original. O [CONTRIBUTING.md](CONTRIBUTING.md) herdado descreve o processo do projeto upstream; regras sobre envio de contribuições a ele se aplicam quando você contribui com o T3 Code original.
 
-## "Wait, what are you selling me?"
+## Origem, créditos e licença
 
-Nothing. We built T3 Code because we wanted the best possible development experience with agents. We were inspired by existing solutions like the Codex desktop app, Conductor, Claude Desktop and Cursor Glass, but none met our bar.
+Este projeto é um fork comunitário independente. Não é uma versão oficial do T3 Code e não tem afiliação oficial com a OpenAI.
 
-We wanted something performant, remote-ready, and truly open. If we ever go the wrong direction, we want you to have everything you need to fork and build the tool that you want.
+- **Base:** [pingdotgg/t3code](https://github.com/pingdotgg/t3code).
+- **Créditos:** T3 Tools Inc. e os contribuidores do T3 Code.
+- **Licença:** [MIT](LICENSE), com o aviso de copyright original preservado.
+- **Personalização proposta:** identidade e acabamento visual Aero Blue.
 
-## Documentation
-
-- [Install and first run](./docs/user/install.md)
-- [Remote access from a phone or another machine](./docs/user/remote-access.md)
-- [Permission modes](./docs/user/permission-modes.md)
-- [Source control](./docs/user/source-control.md)
-- [Connect outside agents over MCP](./docs/user/outside-agents.md)
-- [FAQ](./docs/user/faq.md)
-
-[All docs](./docs/README.md) has the full list.
-
-## Contributing
-
-We have limited review capacity. Small, focused fixes are the most likely to be merged. Features need an approved discussion first.
-
-- Read [CONTRIBUTING.md](./CONTRIBUTING.md) before you report a bug or open a pull request.
-- Put feature requests in [Ideas](https://github.com/pingdotgg/t3code/discussions/categories/ideas).
-- Build from source with the [development runbook](./docs/operations/development.md#first-checkout). The [architecture overview](./docs/internals/overview.md) explains how it works.
-- Get help in [Discord](https://discord.gg/jn4EGJjrvv).
-
-## License
-
-[MIT](./LICENSE)
+A licença do código não deve ser interpretada como autorização de uso de marcas de terceiros. Assets visuais adicionados ao fork devem ter autoria e licença registradas.
