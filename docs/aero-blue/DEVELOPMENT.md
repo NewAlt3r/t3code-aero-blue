@@ -4,7 +4,7 @@
 
 O Aero Blue deriva de `pingdotgg/t3code`. A base inicial desta preparação é o commit `d86ee1e26179441b24cd9ccdb2ca3444e2539a14`. O histórico e a licença originais são mantidos.
 
-A primeira prévia modifica a aparência do cliente web, reutilizada pelo desktop. A interface web foi aberta no Linux Mint/XFCE; o desktop e a validação completa continuam pendentes. Consulte o [CHANGELOG](../../CHANGELOG.md) para os resultados registrados.
+A primeira prévia modifica a aparência do cliente web, reutilizada pelo desktop. As interfaces web e desktop foram abertas no Linux Mint/XFCE; a validação integrada completa continua pendente. Consulte o [CHANGELOG](../../CHANGELOG.md) para os resultados registrados.
 
 Leia o [AGENTS.md](../../AGENTS.md) antes de alterar o código. Consulte o [guia upstream de desenvolvimento](../operations/development.md) para requisitos e ferramentas; ele acompanha as mudanças da base e evita duplicar instruções que envelhecem.
 
@@ -27,13 +27,31 @@ vp run dev:aero
 
 Use o endereço de pareamento impresso pelo dev runner. Não publique esse endereço. O diretório explícito mantém o estado de desenvolvimento separado dos dados de uso normal; não aponte o servidor de desenvolvimento para `~/.t3/userdata`.
 
-Para testar o desktop, encerre o processo anterior e execute:
+Para testar o desktop em desenvolvimento, encerre o processo anterior e execute:
 
 ```bash
-vp run dev:desktop --home-dir ./.t3-aero-blue-dev --no-seed
+vp run dev:aero --desktop
 ```
 
-`dev:aero` copia a paleta para o estado isolado e a seleciona como padrão do ambiente. O desktop iniciado no mesmo diretório de dados pode receber essa paleta, mas ainda precisa ser validado. O modo de desenvolvimento usa as ferramentas e permissões da base original.
+`dev:aero` atualiza a paleta do ambiente e preenche preferências ausentes, preservando escolhas existentes. O modo `--desktop` aplica a identidade do fork. Não execute desenvolvimento e desktop compilado ao mesmo tempo no mesmo estado.
+
+## Desktop compilado e comando pessoal
+
+No Linux, a compilação do helper de integração com o chaveiro requer compilador C, `pkg-config` e os headers de `libsecret-1`/GLib. Em uma instalação Ubuntu/Mint preparada normalmente, esses headers são fornecidos por `libsecret-1-dev` e suas dependências. Nesta máquina foram usados headers extraídos em uma pasta local do usuário para compilar o helper, sem instalar pacotes no sistema.
+
+Depois de `vp i`, prepare o runtime e compile:
+
+```bash
+vp run --filter @t3tools/desktop ensure:electron
+vp run build:desktop
+vp run install:aero
+```
+
+`install:aero` cria o executável pessoal em `~/.local/bin` e a entrada visível `.Launcher.desktop`. O registro de links criado pelo desktop fica em outra entrada, sem sobrescrever o ícone do menu. `start:aero` inicia o desktop compilado com dados e perfil próprios, telemetria desligada e autoatualização oficial desabilitada.
+
+Não há serviço novo ou inicialização automática com o sistema nesta etapa. Recompile após mudanças de interface e reinicie para vê-las na versão nativa. Em novos terminais, `~/.local/bin` precisa estar no PATH.
+
+O estado local fica em `.t3-aero-blue-dev/` para manter o histórico da prévia. O perfil de navegador Electron fica em `~/.config/t3aero` no Linux padrão; não reutiliza os perfis oficiais ou legados.
 
 ## Desenvolver uma melhoria
 

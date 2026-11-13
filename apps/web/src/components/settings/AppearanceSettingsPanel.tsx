@@ -163,6 +163,20 @@ export function AppearanceSettingsPanel() {
       </SettingsSection>
 
       <SettingsSection id="appearance-interface" title="Interface">
+        {theme === "aero-blue" ? (
+          <SettingsRow
+            id="aero-effects"
+            title="Efeitos Aero"
+            description="Vidro, brilho e ondas decorativas. Desative para usar superfícies opacas e leves."
+            control={
+              <Switch
+                aria-label="Efeitos Aero"
+                checked={settings.glassOpacity < 100}
+                onCheckedChange={(enabled) => updateSettings({ glassOpacity: enabled ? 80 : 100 })}
+              />
+            }
+          />
+        ) : null}
         <SettingsRow
           {...searchableSetting("setting-appearance-contrast")}
           description="Adjust the contrast of colors and borders across the interface."

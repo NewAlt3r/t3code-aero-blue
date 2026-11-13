@@ -4,6 +4,28 @@ Este arquivo registra apenas mudanças específicas deste fork. O histórico com
 
 ## Não lançado
 
+### Desktop local e refinamento Aero
+
+- Janela nativa Electron com identidade T3aero, ícone próprio e perfil isolado em `~/.config/t3aero` no Linux padrão.
+- Comandos `start:aero` e `install:aero`; o comando pessoal `t3aero` e o ícone no menu abrem o desktop.
+- Entrada visível do menu separada do registro de links, evitando que a inicialização do Electron esconda ou substitua o atalho.
+- Encaminhamento dos argumentos de links ao aplicativo através do inicializador.
+- Leitura estável em conversas e ondas nos estados iniciais; controles, campos e diálogos com acabamento azul-prata.
+- Opção Efeitos Aero em Aparência, usando a preferência de opacidade existente; respeito à redução de transparência do sistema.
+- Inicialização preserva escolhas de tema, permissões e provedores; configurações inválidas são preservadas e não substituídas.
+- Ambientes sem preferência de permissões começam em modo supervisionado. Modos de conversas e projetos existentes continuam sendo os da base.
+- Autoatualização oficial e telemetria desativadas no inicializador nativo do fork.
+
+### Verificação desta etapa
+
+- Compilação desktop concluída, janela nativa aberta e encerramento conferido no Linux Mint/XFCE.
+- Abertura pelo comando e pelo menu conferida, incluindo foco na janela existente sem duplicar o aplicativo.
+- 37 testes direcionados do inicializador, identidade e isolamento de perfis passaram; outros 10 testes existentes de proteção de restauração também passaram.
+- Typecheck de web, desktop e scripts e lint dos arquivos alterados passaram.
+- Os testes não executaram uma tarefa paga de agente. Terminal interativo, prévia, aprovações e retomada de uma tarefa real ainda precisam de uma verificação integrada completa.
+- O painel `preview_*` indicado pelo guia de teste não está disponível nesta sessão; a observação da janela não substitui essa validação.
+- Não foi criada tag ou Release desta etapa; a validação integrada continua pendente.
+
 ### Primeira prévia visual
 
 - Paleta clara Aero Blue, importável em JSON pelo sistema de temas existente.
@@ -32,4 +54,4 @@ Este arquivo registra apenas mudanças específicas deste fork. O histórico com
 
 ### Estado
 
-Esta é uma prévia em desenvolvimento, sem instalador, tag ou Release próprios. As alterações se concentram na aparência e no ambiente local de prévia; o motor dos agentes permanece o da base T3 Code.
+Esta é uma versão local nativa em desenvolvimento, sem pacote de distribuição, tag ou Release próprios. O motor dos agentes, terminal, revisão e checkpoints continuam sendo os da base T3 Code.

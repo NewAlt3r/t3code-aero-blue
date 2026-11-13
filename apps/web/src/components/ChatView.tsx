@@ -3290,7 +3290,10 @@ export default function ChatView(props: ChatViewProps) {
   const content = (
     <div
       ref={setWorkspaceLayoutElement}
-      className="relative flex min-h-0 min-w-0 flex-1 overflow-hidden bg-background aero:bg-aero-workspace aero:bg-cover aero:bg-center"
+      className={cn(
+        "relative flex min-h-0 min-w-0 flex-1 overflow-hidden bg-background aero:bg-card",
+        isDraftHeroState && "aero:bg-aero-workspace aero:bg-cover aero:bg-center",
+      )}
     >
       {embedded ? null : (
         <DeviceSetupDialogHost
@@ -3536,6 +3539,9 @@ export default function ChatView(props: ChatViewProps) {
                             : undefined
                         }
                       >
+                        <div className="mb-5 hidden justify-center aero:flex [@media(max-height:34rem)]:hidden">
+                          <img src="/aero-blue/orb.svg" alt="" className="size-16 drop-shadow-md" />
+                        </div>
                         <DraftHeroHeadline
                           draftId={draftId}
                           activeProjectRef={activeProjectRef}

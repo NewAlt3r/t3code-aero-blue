@@ -79,6 +79,9 @@ function resolveSourceTreeIconPath(
   ext: keyof DesktopIconPaths,
 ): string | undefined {
   if (environment.isPackaged || ext === "icns") return undefined;
+  if (environment.branding.baseName === "T3aero" && ext === "png") {
+    return environment.path.join(environment.rootDir, "assets", "aero-blue", "orb.png");
+  }
   const brand = environment.isDevelopment ? "dev" : "prod";
   const fileNames = sourceTreeIconFileNames[brand];
   const fileName =

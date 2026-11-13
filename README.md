@@ -4,7 +4,7 @@ Uma versão independente do [T3 Code](https://github.com/pingdotgg/t3code), com 
 
 Azul-gelo, superfícies de vidro, degradês suaves e botões com brilho: uma interface pessoal, feita para ser refinada ao longo do tempo, mantendo a base funcional do T3 Code.
 
-> **Estado atual: primeira prévia visual de desenvolvimento.** O tema claro Aero Blue já inclui paleta azul-gelo, ondas vetoriais, identidade própria, controles com degradê e superfícies de conversa. A interface web foi aberta no Linux Mint/XFCE. O desktop, o empacotamento e a validação completa ainda estão pendentes; não há instalador próprio publicado.
+> **Estado atual: versão desktop local em desenvolvimento.** O T3aero já abre em janela dedicada no Linux Mint/XFCE, tem comando próprio, ícone no menu, perfil separado e acabamento Aero Blue. Ainda não há instalador `.deb`/AppImage próprio, tag ou Release; a validação completa com tarefas reais continua pendente.
 
 ## Objetivos
 
@@ -18,35 +18,45 @@ O primeiro ambiente de referência é **Linux Mint com XFCE**. Isso é uma prior
 
 ## Documentação do Aero Blue
 
-| Documento                                                     | Conteúdo                                               |
-| ------------------------------------------------------------- | ------------------------------------------------------ |
-| [Direção visual](docs/aero-blue/DESIGN.md)                    | Paleta proposta, acabamento, legibilidade e desempenho |
-| [Evolução do projeto](docs/aero-blue/ROADMAP.md)              | Etapas e critérios para as primeiras versões           |
-| [Desenvolvimento e manutenção](docs/aero-blue/DEVELOPMENT.md) | Executar, validar e atualizar o fork                   |
-| [Histórico de alterações](CHANGELOG.md)                       | Registro das mudanças específicas do Aero Blue         |
+| Documento                                                     | Conteúdo                                                 |
+| ------------------------------------------------------------- | -------------------------------------------------------- |
+| [Como usar](docs/aero-blue/USAGE.md)                          | Abertura, terminal, aparência, dados e atualização local |
+| [Direção visual](docs/aero-blue/DESIGN.md)                    | Paleta proposta, acabamento, legibilidade e desempenho   |
+| [Evolução do projeto](docs/aero-blue/ROADMAP.md)              | Etapas e critérios para as primeiras versões             |
+| [Desenvolvimento e manutenção](docs/aero-blue/DEVELOPMENT.md) | Executar, validar e atualizar o fork                     |
+| [Histórico de alterações](CHANGELOG.md)                       | Registro das mudanças específicas do Aero Blue           |
 
 A [apresentação original do T3 Code](README.upstream.md) foi preservada. Os [guias originais](docs/README.md), as [instruções de desenvolvimento](docs/operations/development.md) e a [documentação de temas](docs/user/appearance.md) continuam disponíveis.
 
-## Começar a desenvolver
+## Abrir a instalação pessoal
 
-Siga os pré-requisitos em [Development](docs/operations/development.md#first-checkout), incluindo a instalação do Vite+ (`vp`). O Vite+ fornece a versão de Node fixada pelo projeto.
+Digite `t3aero` ou use o ícone **T3aero** no menu do Mint. A janela nativa abre sem abas ou barra de endereço do navegador. **Ctrl+J** alterna o terminal; **Ctrl+Alt+B** alterna o painel direito.
+
+Em **Settings → Appearance**, você pode trocar de tema ou desativar **Efeitos Aero**. O inicializador preserva as preferências salvas. Leia o [guia de uso](docs/aero-blue/USAGE.md) para permissões, dados e limites de recuperação.
+
+## Preparar um checkout
+
+Siga os pré-requisitos do [guia de desenvolvimento](docs/aero-blue/DEVELOPMENT.md), incluindo Vite+ (`vp`), Electron e as dependências de compilação Linux.
 
 ```bash
 git clone https://github.com/NewAlt3r/t3code-aero-blue.git
 cd t3code-aero-blue
 vp i
-vp run dev:aero
+vp run --filter @t3tools/desktop ensure:electron
+vp run build:desktop
+vp run install:aero
+t3aero
 ```
 
-Abra o endereço de pareamento exibido pelo processo. O comando publica a paleta em um ambiente local isolado e seleciona o Aero Blue. Os dados ficam em `.t3-aero-blue-dev/`, sem alterar sua instalação normal. O comando reaplica o tema ao iniciar. Para sair dele durante o uso, escolha outro em **Settings → Appearance**. Para o cliente desktop, consulte o [guia do fork](docs/aero-blue/DEVELOPMENT.md).
+O Codex precisa estar instalado e autenticado separadamente para executar tarefas reais. O T3 Code funciona como interface para o agente; este fork não oferece assinatura ou cota própria.
 
-O Codex precisa estar instalado e autenticado separadamente para executar tarefas reais. O T3 Code funciona como interface para o agente; este fork não oferece uma assinatura ou uma cota de modelos própria.
+Para desenvolvimento web com recarga automática, feche o desktop e use `vp run dev:aero`. Os comandos usam o mesmo estado local do Aero Blue; não execute os dois ao mesmo tempo.
 
 ## Instalação e versões
 
-Ainda não há release do Aero Blue. Os downloads oficiais e os pacotes citados na documentação original instalam **T3 Code original**, sem as personalizações planejadas aqui.
+O comando e o ícone pessoais foram instalados a partir deste checkout. Ainda não há pacote distribuível do Aero Blue. Os downloads oficiais do T3 Code não incluem estas alterações.
 
-A prévia atual é o primeiro passo para `v0.1.0-aero.1`. Ainda não há tag ou Release: a validação completa e o desktop continuam pendentes. Datas e funcionalidades podem mudar conforme o desenvolvimento.
+O próximo marco continua sendo `v0.1.0-aero.1`, depois da validação do fluxo real. O rótulo Beta herdado na janela não representa uma Release publicada deste fork.
 
 ## Contribuir
 

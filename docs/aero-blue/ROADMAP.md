@@ -14,7 +14,7 @@ Este roteiro registra a direção pública do fork. As etapas são intenções, 
 - Paleta clara azul-gelo implementada pelo sistema de temas existente.
 - Primeira passagem de barra lateral, conversa, campo de mensagem, controles e fundo vetorial implementada.
 - Definir estados de foco, seleção, hover e controles desabilitados.
-- Conferir web e desktop no Linux Mint/XFCE.
+- Compilação e abertura desktop conferidas no Linux Mint/XFCE; validação integrada de terminal, prévia e tarefa real pendente.
 - Publicar capturas reais e instruções de uso coerentes com o que foi entregue.
 
 **Pronta quando:** o tema estiver utilizável no fluxo básico de uma conversa, com contraste revisado e verificações pertinentes executadas.
@@ -23,15 +23,15 @@ Este roteiro registra a direção pública do fork. As etapas são intenções, 
 
 - Adicionar degradês, bordas, sombras e efeito de vidro onde forem adequados.
 - Harmonizar menus, diálogos, blocos de código, terminal e revisão de alterações.
-- Oferecer acabamento opaco ou reduzido para evitar custo gráfico excessivo.
+- Opção Efeitos Aero implementada para acabamento opaco; validação interativa e desempenho ainda pendentes.
 - Verificar pedidos de aprovação e erros, que não podem perder destaque.
 
 **Pronta quando:** o acabamento estiver consistente nas superfícies prioritárias, sem regressão observada nos fluxos verificados.
 
 ## `v0.3.0-aero.1` — distribuição própria
 
-- Definir nome, ícone e identificação dos pacotes do fork.
-- Separar armazenamento e canal de atualização dos binários oficiais antes de oferecer instalação lado a lado.
+- Nome, ícone, comando e entrada no menu implementados localmente; identidade de pacotes distribuíveis ainda pendente.
+- Perfil Electron separado e autoatualização oficial desativada no inicializador; distribuição lado a lado ainda precisa de teste de pacote.
 - Validar o empacotamento Linux e disponibilizar artefatos próprios.
 - Documentar atualização, remoção e limitações conhecidas.
 

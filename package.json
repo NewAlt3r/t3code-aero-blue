@@ -60,7 +60,9 @@
     "release:smoke": "node scripts/release-smoke.ts",
     "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules apps/*/dist apps/*/dist-electron packages/*/dist .vite-plus apps/*/.vite-plus packages/*/.vite-plus",
     "sync:repos": "node scripts/sync-reference-repos.ts",
-    "dev:aero": "node scripts/dev-aero.ts"
+    "dev:aero": "node scripts/dev-aero.ts",
+    "start:aero": "node scripts/start-aero.ts",
+    "install:aero": "node scripts/install-aero.ts"
   },
   "devDependencies": {
     "@coderabbitai/config": "1.2.0",

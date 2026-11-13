@@ -85,9 +85,10 @@ export const make = Effect.gen(function* () {
     return commitHash;
   });
 
-  const userDataPath = DesktopUserData.resolveUserDataPath(environment).pipe(
-    Effect.provide(userDataContext),
-  );
+  const userDataPath = DesktopUserData.resolveUserDataPath({
+    ...environment,
+    aeroBlue: environment.branding.baseName === "T3aero",
+  }).pipe(Effect.provide(userDataContext));
 
   const configure = Effect.gen(function* () {
     const commitHash = yield* resolveAboutCommitHash;

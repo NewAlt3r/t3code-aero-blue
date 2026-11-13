@@ -73,3 +73,18 @@ describe("DesktopEnvironment", () => {
     }),
   );
 });
+
+it.effect(
+  "gives Aero Blue a distinct application identity without changing its explicit data home",
+  () =>
+    Effect.gen(function* () {
+      const environment = yield* makeEnvironment(
+        { platform: "linux", homeDirectory: "/home/alice" },
+        { T3CODE_AERO_BLUE: "1", T3CODE_HOME: "/home/alice/aero-data" },
+      );
+      assert.equal(environment.branding.baseName, "T3aero");
+      assert.equal(environment.linuxDesktopEntryName, "io.github.NewAlt3r.T3aero.desktop");
+      assert.equal(environment.baseDir, "/home/alice/aero-data");
+      assert.equal(environment.stateDir, "/home/alice/aero-data/userdata");
+    }),
+);

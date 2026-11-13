@@ -1,42 +1,23 @@
+// @effect-diagnostics nodeBuiltinImport:off globalConsole:off - This Node bootstrap starts the app runtime and forwards its process lifecycle.
 import * as NodeChildProcess from "node:child_process";
-import * as NodeFSP from "node:fs/promises";
 import * as NodeURL from "node:url";
-import * as NodePath from "node:path";
+
+import { prepareAeroState } from "./aero-state.ts";
 
 const root = NodeURL.fileURLToPath(new URL("../", import.meta.url));
-const home = NodePath.join(root, ".t3-aero-blue-dev");
-const userdata = NodePath.join(home, "userdata");
-await NodeFSP.mkdir(NodePath.join(userdata, "themes"), { recursive: true });
-await NodeFSP.copyFile(
-  NodePath.join(root, "assets/aero-blue/aero-blue.json"),
-  NodePath.join(userdata, "themes/aero-blue.json"),
-);
-const settingsPath = NodePath.join(userdata, "settings.json");
-// This isolated preview never changes the installed app's data or theme.
-const settings = await NodeFSP.readFile(settingsPath, "utf8").then(
-  (raw) => JSON.parse(raw),
-  (error: NodeJS.ErrnoException) => {
-    if (error.code !== "ENOENT") throw error;
-    return {};
+const home = await prepareAeroState(root);
+const requested = process.argv.slice(2);
+const desktop = requested.includes("--desktop");
+const args = requested.filter((arg) => arg !== "--desktop");
+const child = NodeChildProcess.spawn(
+  "vp",
+  ["run", desktop ? "dev:desktop" : "dev", "--home-dir", home, "--no-seed", ...args],
+  {
+    cwd: root,
+    stdio: "inherit",
+    env: { ...process.env, T3CODE_AERO_BLUE: "1", T3CODE_DISABLE_AUTO_UPDATE: "1" },
   },
 );
-await NodeFSP.writeFile(
-  settingsPath,
-  JSON.stringify(
-    {
-      ...settings,
-      defaultTheme: "aero-blue",
-      defaultThemeSetAt: new Date().toISOString(),
-      onboardingCompletedAt: settings.onboardingCompletedAt ?? new Date().toISOString(),
-    },
-    null,
-    2,
-  ) + "\n",
-);
-const child = NodeChildProcess.spawn("vp", ["run", "dev", "--home-dir", home, "--no-seed"], {
-  cwd: root,
-  stdio: "inherit",
-});
 process.once("SIGINT", () => child.kill("SIGINT"));
 process.once("SIGTERM", () => child.kill("SIGTERM"));
 child.once("error", (error) => {

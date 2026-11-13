@@ -116,7 +116,8 @@ function DialogPopup({
         className={cn(
           variant === "media" ? DIALOG_MEDIA_POPUP_CLASS : DIALOG_POPUP_CLASS,
           "row-start-2 text-popover-foreground",
-          variant === "default" && "max-h-full max-w-lg",
+          variant === "default" &&
+            "max-h-full max-w-lg aero:border-aero-frame aero:bg-aero-panel aero:shadow-aero-frame",
           bottomStickOnMobile && DIALOG_MOBILE_SHEET_CLASS,
           className,
         )}

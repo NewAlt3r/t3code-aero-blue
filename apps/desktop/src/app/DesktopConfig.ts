@@ -34,6 +34,7 @@ const compactEnv = (env: Readonly<Record<string, string | undefined>>): Record<s
   );
 
 export const DesktopConfig = Config.all({
+  aeroBlue: optionalBoolean("T3CODE_AERO_BLUE"),
   appDataDirectory: trimmedString("APPDATA"),
   xdgConfigHome: trimmedString("XDG_CONFIG_HOME"),
   xdgDataHome: trimmedString("XDG_DATA_HOME"),

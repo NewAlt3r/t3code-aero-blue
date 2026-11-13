@@ -138,3 +138,28 @@ it.effect("retries on the next launch when a GPU cache cannot be removed", () =>
     assert.deepStrictEqual(writes, []);
   }).pipe(Effect.provide(NodeServices.layer)),
 );
+
+it.effect("keeps Aero browser storage separate from the original and legacy profiles", () =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const path = yield* Path.Path;
+    const directory = yield* fs.makeTempDirectoryScoped({ prefix: "aero-profile-" });
+    const original = path.join(directory, "t3code-dev");
+    const legacy = path.join(directory, "T3 Code (Dev)");
+    yield* fs.makeDirectory(original, { recursive: true });
+    yield* fs.makeDirectory(legacy, { recursive: true });
+    yield* fs.writeFileString(path.join(original, "Local State"), "original credentials");
+    const aero = yield* resolveUserDataPath({
+      appDataDirectory: directory,
+      platform: "linux",
+      isDevelopment: true,
+      aeroBlue: true,
+    });
+    assert.equal(aero, path.join(directory, "t3aero"));
+    assert.equal(
+      yield* fs.readFileString(path.join(original, "Local State")),
+      "original credentials",
+    );
+    assert.isFalse(yield* fs.exists(path.join(aero, "Local State")));
+  }).pipe(Effect.scoped, Effect.provide(NodeServices.layer)),
+);

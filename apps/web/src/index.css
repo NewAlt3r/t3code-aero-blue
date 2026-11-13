@@ -2647,6 +2647,11 @@ code {
     );
     --aero-control: linear-gradient(to bottom, #ffffff 0%, #eef8ff 46%, #d4e9f7 50%, #f3fbff 100%);
     --aero-primary: linear-gradient(to bottom, #3487b7 0%, #2479ab 46%, #086399 50%, #1479ac 100%);
+    --aero-primary-hover: linear-gradient(to bottom, #2778ab, #09669e);
+    --aero-primary-pressed: linear-gradient(to bottom, #064c79, #176f9f);
+    --aero-control-hover: linear-gradient(to bottom, #ffffff, #c4e8fa);
+    --aero-control-pressed: linear-gradient(to bottom, #b4d4e9, #e6f6ff);
+    --aero-input-shadow: inset 0 1px 3px rgb(38 87 122 / 10%), 0 1px white;
     --aero-panel: linear-gradient(to bottom, rgb(255 255 255 / 96%), rgb(242 250 255 / 94%));
     --aero-frame-shadow:
       0 12px 40px rgb(36 91 133 / 14%), 0 1px 3px rgb(45 99 139 / 18%), inset 0 1px white;
@@ -2662,7 +2667,36 @@ code {
   --background-image-aero-primary: var(--aero-primary);
   --background-image-aero-control: var(--aero-control);
   --background-image-aero-panel: var(--aero-panel);
+  --background-image-aero-primary-hover: var(--aero-primary-hover);
+  --background-image-aero-primary-pressed: var(--aero-primary-pressed);
+  --background-image-aero-control-hover: var(--aero-control-hover);
+  --background-image-aero-control-pressed: var(--aero-control-pressed);
+  --shadow-aero-input: var(--aero-input-shadow);
+  --color-aero-frame: #8fadbf;
   --shadow-aero-frame: var(--aero-frame-shadow);
   --shadow-aero-control: var(--aero-control-shadow);
   --shadow-aero-sidebar: inset -1px 0 0 rgb(255 255 255 / 70%);
+}
+
+@layer components {
+  html[data-theme-id="aero-blue"][data-aero-effects="reduced"] {
+    --aero-workspace: linear-gradient(#edf6fc, #edf6fc);
+    --aero-sidebar: linear-gradient(#deedf8, #deedf8);
+    --aero-control: linear-gradient(#f2f8fc, #f2f8fc);
+    --aero-primary: linear-gradient(#09669e, #09669e);
+    --aero-panel: linear-gradient(#f7fbff, #f7fbff);
+    --aero-frame-shadow: 0 1px 3px rgb(36 91 133 / 10%);
+    --aero-control-shadow: none;
+    --glass-blur: 0px;
+    --glass-saturation: 1;
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    html[data-theme-id="aero-blue"] {
+      --aero-sidebar: linear-gradient(#deedf8, #deedf8);
+      --aero-panel: linear-gradient(#f7fbff, #f7fbff);
+      --glass-opacity: 100%;
+      --glass-blur: 0px;
+    }
+  }
 }

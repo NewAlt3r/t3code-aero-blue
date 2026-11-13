@@ -92,6 +92,7 @@ function startClientAppearance(): void {
     }
     if (previous?.glassOpacity !== settings.glassOpacity) {
       root.style.setProperty("--glass-opacity", `${settings.glassOpacity}%`);
+      root.dataset.aeroEffects = settings.glassOpacity === 100 ? "reduced" : "glass";
       if (settings.glassOpacity === 100) {
         root.style.setProperty("--glass-blur", "0px");
       } else {

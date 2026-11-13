@@ -101,12 +101,14 @@ function resolveDesktopAppStageLabel(input: {
 export function resolveDesktopAppBranding(input: {
   readonly isDevelopment: boolean;
   readonly appVersion: string;
+  readonly aeroBlue?: boolean;
 }): DesktopAppBranding {
   const stageLabel = resolveDesktopAppStageLabel(input);
+  const baseName = input.aeroBlue ? "T3aero" : APP_BASE_NAME;
   return {
-    baseName: APP_BASE_NAME,
+    baseName,
     stageLabel,
-    displayName: `${APP_BASE_NAME} (${stageLabel})`,
+    displayName: `${baseName} (${stageLabel})`,
   };
 }
 
@@ -168,6 +170,7 @@ const make = Effect.fn("desktop.environment.make")(function* (
       ? path.join(input.resourcesPath, "server.asar")
       : appRoot;
   const branding = resolveDesktopAppBranding({
+    aeroBlue: config.aeroBlue,
     isDevelopment,
     appVersion: input.appVersion,
   });
@@ -228,9 +231,13 @@ const make = Effect.fn("desktop.environment.make")(function* (
     branding,
     displayName,
     appUserModelId: Option.getOrElse(config.appUserModelIdOverride, () =>
-      isDevelopment ? "com.t3tools.t3code.dev" : "com.t3tools.t3code",
+      config.aeroBlue
+        ? "io.github.NewAlt3r.T3aero"
+        : isDevelopment
+          ? "com.t3tools.t3code.dev"
+          : "com.t3tools.t3code",
     ),
-    linuxDesktopEntryName: resolveLinuxDesktopEntryName(isDevelopment),
+    linuxDesktopEntryName: resolveLinuxDesktopEntryName(isDevelopment, config.aeroBlue),
     linuxApplicationsDir,
     desktopLauncherPath: config.desktopLauncherPath,
     appImagePath: config.appImagePath,

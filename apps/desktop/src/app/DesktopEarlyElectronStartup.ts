@@ -30,8 +30,12 @@ export interface EarlyLinuxElectronOptions {
   readonly passwordStore: LinuxPasswordStoreSwitch | null;
 }
 
-export const resolveLinuxDesktopEntryName = (isDevelopment: boolean): string =>
-  isDevelopment ? "com.t3tools.T3Code.Development.desktop" : "com.t3tools.T3Code.desktop";
+export const resolveLinuxDesktopEntryName = (isDevelopment: boolean, aeroBlue = false): string =>
+  aeroBlue
+    ? "io.github.NewAlt3r.T3aero.desktop"
+    : isDevelopment
+      ? "com.t3tools.T3Code.Development.desktop"
+      : "com.t3tools.T3Code.desktop";
 
 const trimNonEmpty = (value: string | undefined): string | null => {
   const trimmed = value?.trim();
@@ -145,7 +149,10 @@ export function resolveEarlyLinuxElectronOptions(
   const isDevelopment = isDevelopmentEnvironment(input.env);
   return {
     isDevelopment,
-    linuxDesktopEntryName: resolveLinuxDesktopEntryName(isDevelopment),
+    linuxDesktopEntryName: resolveLinuxDesktopEntryName(
+      isDevelopment,
+      input.env.T3CODE_AERO_BLUE === "1" || input.env.T3CODE_AERO_BLUE === "true",
+    ),
     passwordStore: resolveLinuxPasswordStoreSwitch({
       preference,
       env: input.env,
