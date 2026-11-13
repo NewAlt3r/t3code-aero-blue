@@ -4,7 +4,7 @@ Uma versão independente do [T3 Code](https://github.com/pingdotgg/t3code), com 
 
 Azul-gelo, superfícies de vidro, degradês suaves e botões com brilho: uma interface pessoal, feita para ser refinada ao longo do tempo, mantendo a base funcional do T3 Code.
 
-> **Estado atual: preparação do projeto.** Este repositório contém o código original e a documentação inicial do Aero Blue. O tema ainda não foi implementado, não há capturas da versão personalizada nem instaladores próprios publicados.
+> **Estado atual: primeira prévia visual de desenvolvimento.** O tema claro Aero Blue já inclui paleta azul-gelo, ondas vetoriais, identidade própria, controles com degradê e superfícies de conversa. A interface web foi aberta no Linux Mint/XFCE. O desktop, o empacotamento e a validação completa ainda estão pendentes; não há instalador próprio publicado.
 
 ## Objetivos
 
@@ -35,10 +35,10 @@ Siga os pré-requisitos em [Development](docs/operations/development.md#first-ch
 git clone https://github.com/NewAlt3r/t3code-aero-blue.git
 cd t3code-aero-blue
 vp i
-vp run dev --home-dir ./.t3-aero-blue-dev --no-seed
+vp run dev:aero
 ```
 
-Abra o endereço de pareamento exibido pelo processo. Para o cliente desktop, consulte o [guia do fork](docs/aero-blue/DEVELOPMENT.md). As instruções acima executam a base de desenvolvimento; ainda não ativam um tema Aero Blue.
+Abra o endereço de pareamento exibido pelo processo. O comando publica a paleta em um ambiente local isolado e seleciona o Aero Blue. Os dados ficam em `.t3-aero-blue-dev/`, sem alterar sua instalação normal. O comando reaplica o tema ao iniciar. Para sair dele durante o uso, escolha outro em **Settings → Appearance**. Para o cliente desktop, consulte o [guia do fork](docs/aero-blue/DEVELOPMENT.md).
 
 O Codex precisa estar instalado e autenticado separadamente para executar tarefas reais. O T3 Code funciona como interface para o agente; este fork não oferece uma assinatura ou uma cota de modelos própria.
 
@@ -46,7 +46,7 @@ O Codex precisa estar instalado e autenticado separadamente para executar tarefa
 
 Ainda não há release do Aero Blue. Os downloads oficiais e os pacotes citados na documentação original instalam **T3 Code original**, sem as personalizações planejadas aqui.
 
-A primeira versão visual prevista é `v0.1.0-aero.1`. Ela só será publicada depois que o tema estiver implementado e validado. Datas e funcionalidades podem mudar conforme o desenvolvimento.
+A prévia atual é o primeiro passo para `v0.1.0-aero.1`. Ainda não há tag ou Release: a validação completa e o desktop continuam pendentes. Datas e funcionalidades podem mudar conforme o desenvolvimento.
 
 ## Contribuir
 

@@ -1406,7 +1406,20 @@ const ConversationTimeline = memo(function ConversationTimeline({
           className="flex h-full items-center justify-center ps-(--chat-lane-inset-start) pe-(--chat-lane-inset-end)"
           style={{ paddingBottom: emptyPlaceholderInset }}
         >
-          <p className="text-sm text-muted-foreground">Send a message to start the conversation.</p>
+          <div className="text-center">
+            <div className="mb-5 hidden flex-col items-center aero:flex">
+              <img src="/aero-blue/orb.svg" alt="" className="mb-5 size-20 drop-shadow-lg" />
+              <h2 className="text-2xl font-medium tracking-tight text-foreground">
+                A little clarity. A fresh start.
+              </h2>
+              <span className="mt-2 text-xs font-semibold tracking-widest text-muted-foreground">
+                AERO BLUE
+              </span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Send a message to start the conversation.
+            </p>
+          </div>
         </div>
       </>
     );

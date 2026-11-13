@@ -4,7 +4,7 @@
 
 O Aero Blue deriva de `pingdotgg/t3code`. A base inicial desta preparação é o commit `d86ee1e26179441b24cd9ccdb2ca3444e2539a14`. O histórico e a licença originais são mantidos.
 
-A etapa inicial modifica documentação. Não há implementação do tema ou validação de execução do aplicativo nesta etapa.
+A primeira prévia modifica a aparência do cliente web, reutilizada pelo desktop. A interface web foi aberta no Linux Mint/XFCE; o desktop e a validação completa continuam pendentes. Consulte o [CHANGELOG](../../CHANGELOG.md) para os resultados registrados.
 
 Leia o [AGENTS.md](../../AGENTS.md) antes de alterar o código. Consulte o [guia upstream de desenvolvimento](../operations/development.md) para requisitos e ferramentas; ele acompanha as mudanças da base e evita duplicar instruções que envelhecem.
 
@@ -22,7 +22,7 @@ Instale o Vite+ conforme o guia upstream e execute:
 
 ```bash
 vp i
-vp run dev --home-dir ./.t3-aero-blue-dev --no-seed
+vp run dev:aero
 ```
 
 Use o endereço de pareamento impresso pelo dev runner. Não publique esse endereço. O diretório explícito mantém o estado de desenvolvimento separado dos dados de uso normal; não aponte o servidor de desenvolvimento para `~/.t3/userdata`.
@@ -33,7 +33,7 @@ Para testar o desktop, encerre o processo anterior e execute:
 vp run dev:desktop --home-dir ./.t3-aero-blue-dev --no-seed
 ```
 
-O modo de desenvolvimento usa as ferramentas e permissões da base original. Não ativa um tema Aero Blue até sua implementação.
+`dev:aero` copia a paleta para o estado isolado e a seleciona como padrão do ambiente. O desktop iniciado no mesmo diretório de dados pode receber essa paleta, mas ainda precisa ser validado. O modo de desenvolvimento usa as ferramentas e permissões da base original.
 
 ## Desenvolver uma melhoria
 

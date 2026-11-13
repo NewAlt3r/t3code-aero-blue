@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="900" y1="0" x2="700" y2="1000" gradientUnits="userSpaceOnUse"><stop stop-color="#e8f7ff"/><stop offset=".5" stop-color="#c9e8fa"/><stop offset="1" stop-color="#80bee0"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="white" stop-opacity=".9"/><stop offset="1" stop-color="white" stop-opacity="0"/></radialGradient>
+    <linearGradient id="wave" x1="100" y1="950" x2="1500" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="white" stop-opacity=".65"/><stop offset="1" stop-color="white" stop-opacity=".06"/></linearGradient>
+    <radialGradient id="orb" cx=".35" cy=".25"><stop stop-color="white" stop-opacity=".7"/><stop offset=".65" stop-color="#edfcff" stop-opacity=".05"/><stop offset="1" stop-color="white" stop-opacity=".5"/></radialGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
+  <ellipse fill="url(#light)" cx="1220" cy="110" rx="760" ry="540"/>
+  <path fill="white" fill-opacity=".28" d="M550-100c-20 470 670 650 1180 330v70C1120 640 440 400 460-100z"/>
+  <path fill="white" fill-opacity=".35" d="M650-100c-10 380 510 500 1080 280v30C1120 490 580 360 570-100z"/>
+  <path fill="url(#wave)" d="M-100 820c570-400 1140-80 1800-560v120C1050 870 550 510-100 960z"/>
+  <path fill="white" fill-opacity=".19" d="M-100 970c650-450 1190-130 1800-600v45C1080 920 520 620-100 1060z"/>
+  <path stroke="white" stroke-opacity=".45" d="M-100 900c650-450 1190-130 1800-600"/>
+  <g fill="url(#orb)" stroke="white" stroke-opacity=".6"><circle cx="1420" cy="610" r="57"/><circle cx="1330" cy="740" r="21"/><circle cx="100" cy="750" r="30"/></g>
+  <g fill="white" opacity=".75"><path d="m1370 100 3 24 25 3-25 3-3 24-3-24-25-3 25-3z"/><path d="m1210 325 2 16 17 2-17 2-2 16-2-16-17-2 17-2z"/><circle cx="165" cy="885" r="5"/><circle cx="220" cy="855" r="3"/><circle cx="273" cy="907" r="8"/><circle cx="326" cy="837" r="4"/></g>
+</svg>

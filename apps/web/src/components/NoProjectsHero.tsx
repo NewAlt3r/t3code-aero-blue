@@ -22,12 +22,18 @@ export function NoProjectsHero() {
       role="main"
       className="h-dvh min-h-0 overflow-hidden overscroll-y-none"
     >
-      <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-x-hidden bg-background">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-x-hidden bg-background aero:bg-transparent">
         {/* The desktop window only moves where CSS opts in, so keep a titlebar strip. */}
         {isElectron ? <WorkspacePageHeader electron /> : null}
         <Empty size="hero" className="flex-1">
           <div className="w-full max-w-lg px-8 py-12">
             <EmptyHeader className="max-w-none">
+              <div className="mb-7 hidden flex-col items-center aero:flex">
+                <img src="/aero-blue/orb.svg" alt="" className="mb-4 size-24 drop-shadow-lg" />
+                <span className="text-xs font-semibold tracking-widest text-muted-foreground">
+                  AERO BLUE
+                </span>
+              </div>
               <EmptyTitle>What should we work on?</EmptyTitle>
               <EmptyDescription>
                 {scratchTargetEnvironmentId === null

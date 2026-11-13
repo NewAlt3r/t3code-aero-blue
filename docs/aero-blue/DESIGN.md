@@ -4,7 +4,7 @@
 
 Trazer a sensação de uma interface Aero clássica para o fluxo de agentes do T3 Code: vidro azulado, profundidade discreta e controles brilhantes, com o conteúdo sempre legível. A referência de composição é uma área de trabalho com ondas claras, brilhos pontuais e janelas prateadas, reinterpretada em azul.
 
-Esta página descreve a direção pretendida. Não documenta recursos já implementados.
+Esta página descreve a direção do projeto. A primeira prévia já aplica ondas estáticas, a paleta clara, a esfera e o acabamento de controles no cliente web; os demais critérios continuam sendo metas de validação.
 
 ## Paleta inicial proposta
 

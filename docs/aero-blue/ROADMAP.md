@@ -9,11 +9,10 @@ Este roteiro registra a direção pública do fork. As etapas são intenções, 
 - Apresentação do fork, créditos e licença documentados.
 - Direção visual e procedimento de manutenção registrados.
 
+## `v0.1.0-aero.1` — primeira versão visual (prévia em andamento)
 
-## `v0.1.0-aero.1` — primeira versão visual
-
-- Implementar uma paleta clara azul-gelo pelo sistema de temas existente.
-- Refinar barra lateral, conversa e campo de mensagem.
+- Paleta clara azul-gelo implementada pelo sistema de temas existente.
+- Primeira passagem de barra lateral, conversa, campo de mensagem, controles e fundo vetorial implementada.
 - Definir estados de foco, seleção, hover e controles desabilitados.
 - Conferir web e desktop no Linux Mint/XFCE.
 - Publicar capturas reais e instruções de uso coerentes com o que foi entregue.

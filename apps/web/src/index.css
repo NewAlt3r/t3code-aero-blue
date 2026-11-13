@@ -4,6 +4,7 @@
 
 @custom-variant dark (&:is(.dark, .dark *));
 @custom-variant light (&:not(.dark, .dark *));
+@custom-variant aero (&:where(html[data-theme-id="aero-blue"] *));
 /* Window Controls Overlay: active when Electron exposes native titlebar control geometry. */
 @custom-variant wco (&:is(.wco, .wco *));
 
@@ -2631,4 +2632,37 @@ code {
 [data-workspace-keyboard-focus]:focus {
   outline: 2px solid var(--ring);
   outline-offset: -2px;
+}
+
+@layer components {
+  html[data-theme-id="aero-blue"] {
+    --surface-grain: none;
+    --surface-grain-size: auto;
+    --aero-workspace: url("/aero-blue/blue-waves.svg");
+    --aero-sidebar: linear-gradient(
+      160deg,
+      rgb(250 254 255 / 86%),
+      rgb(186 222 245 / 90%) 45%,
+      rgb(214 239 254 / 92%)
+    );
+    --aero-control: linear-gradient(to bottom, #ffffff 0%, #eef8ff 46%, #d4e9f7 50%, #f3fbff 100%);
+    --aero-primary: linear-gradient(to bottom, #3487b7 0%, #2479ab 46%, #086399 50%, #1479ac 100%);
+    --aero-panel: linear-gradient(to bottom, rgb(255 255 255 / 96%), rgb(242 250 255 / 94%));
+    --aero-frame-shadow:
+      0 12px 40px rgb(36 91 133 / 14%), 0 1px 3px rgb(45 99 139 / 18%), inset 0 1px white;
+    --aero-control-shadow: inset 0 1px rgb(255 255 255 / 85%), 0 1px 2px rgb(39 87 119 / 12%);
+    --glass-blur: 12px;
+    --glass-saturation: 1.1;
+  }
+}
+
+@theme inline {
+  --background-image-aero-workspace: var(--aero-workspace);
+  --background-image-aero-sidebar: var(--aero-sidebar);
+  --background-image-aero-primary: var(--aero-primary);
+  --background-image-aero-control: var(--aero-control);
+  --background-image-aero-panel: var(--aero-panel);
+  --shadow-aero-frame: var(--aero-frame-shadow);
+  --shadow-aero-control: var(--aero-control-shadow);
+  --shadow-aero-sidebar: inset -1px 0 0 rgb(255 255 255 / 70%);
 }
